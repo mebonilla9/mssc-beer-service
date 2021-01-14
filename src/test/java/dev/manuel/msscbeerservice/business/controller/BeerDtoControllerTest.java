@@ -1,7 +1,7 @@
 package dev.manuel.msscbeerservice.business.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.manuel.msscbeerservice.model.dto.Beer;
+import dev.manuel.msscbeerservice.model.dto.BeerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(BeerController.class)
-class BeerControllerTest {
+class BeerDtoControllerTest {
 
   private final String uriBase = "/api/v1/beer/";
 
@@ -33,8 +33,8 @@ class BeerControllerTest {
 
   @Test
   void saveNewBeerTest() throws Exception {
-    Beer beer = Beer.builder().build();
-    String beerJson = objectMapper.writeValueAsString(beer);
+    BeerDto beerDto = BeerDto.builder().build();
+    String beerJson = objectMapper.writeValueAsString(beerDto);
 
     mockMvc.perform(post(uriBase)
         .contentType(MediaType.APPLICATION_JSON)
@@ -44,8 +44,8 @@ class BeerControllerTest {
 
   @Test
   void updateBeerByIdTest() throws Exception {
-    Beer beer = Beer.builder().build();
-    String beerJson = objectMapper.writeValueAsString(beer);
+    BeerDto beerDto = BeerDto.builder().build();
+    String beerJson = objectMapper.writeValueAsString(beerDto);
 
     mockMvc.perform(put(uriBase + UUID.randomUUID().toString())
         .contentType(MediaType.APPLICATION_JSON)
