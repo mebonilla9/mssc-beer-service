@@ -2,6 +2,7 @@ package dev.manuel.msscbeerservice.business.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.manuel.msscbeerservice.model.dto.BeerDto;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
